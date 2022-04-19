@@ -7,8 +7,9 @@ db.query(`
 db.query(`
     CREATE TABLE users(
         id INT PRIMARY KEY AUTO_INCREMENT,
+        email VARCHAR(75),
         username VARCHAR(50),
-        password VARCHAR(50)
+        password VARCHAR(300)
     )
 `)
 db.query(`

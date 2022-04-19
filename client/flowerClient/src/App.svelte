@@ -5,7 +5,7 @@
 	import About from "./pages/about.svelte";
 	import Shop from "./pages/shop.svelte";
 	import Admin from "./pages/admin.svelte";
-import Login from "./pages/login.svelte";
+	import Login from "./pages/login.svelte";
 
 	/* onMount(async () => {
 		const response = await fetch("http://localhost:3000/");

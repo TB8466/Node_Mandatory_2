@@ -6,12 +6,41 @@
     let mainContent;
     let overlay;
 
-    let userName;
+    let email;
+    let username;
     let password;
 
-    function login(){
+    let newEmail;
+    let newUsername;
+    let newPassword;
+    let result = null;
 
-    }
+    async function signIn(){
+        const res = await fetch("http://localhost:3000/api/user/login", {
+			method: 'POST',
+            headers: {
+                "Content-Type" : "application/json"
+            },
+			body: JSON.stringify({
+				username,
+				password
+			})
+		})
+		result = await res.json();
+        console.log(result,typeof result, result.Result, typeof result.Result);
+        
+
+        if(result){
+            alert("Login success");
+        }
+        if(!result){
+            alert("Wrong username/password");
+        }
+        if(result.Result == 404){
+            alert("User not found");
+        }
+	};
+    
 
     function createUserOverlay(){
         mainContent.setAttribute("class","blur");
@@ -22,8 +51,22 @@
         overlay.classList.add("hidden");
     }
 
-    function createUser(){
-        
+    async function createUser(){
+        const res = await fetch("http://localhost:3000/api/user", {
+			method: 'POST',
+            headers: {
+                "Content-Type" : "application/json"
+            },
+			body: JSON.stringify({
+                newEmail,
+				newUsername,
+				newPassword
+			})
+		});
+		const json = await res.json()
+		result = JSON.stringify(json)
+        console.log(result);
+
         alert("User created")
         hideOverlay();
     }
@@ -32,26 +75,29 @@
     
     <Header></Header>
     <main>
+        <!-- <button on:click={signIn}>Test</button> -->
         <div bind:this={mainContent} id="main-content">
-        <h1>Login</h1>
-        <label for="username">Username:</label>
-        <input id="username" type="text" bind:value={userName}>
-        <label for="password">Password:</label>
-        <input id="password" type="password" bind:value={password}>
-        <button type="button" on:click={login}>Login</button>
-        <button on:click={createUserOverlay}>No account? Click here to create new account</button>
-    </div>
-        <div bind:this={overlay} class="hidden">
-        <div id="create-user">
-            <span class="close" on:click={hideOverlay}>&times</span>
-            <h1>Create new user:</h1>
-            <label for="crtusername">Username:</label>
-            <input id="crtusername" type="text" bind:value={userName}>
-            <label for="crtpassword">Password:</label>
-            <input id="crtpassword" type="password" bind:value={password}>
-            <button type="button" on:click={createUser}>Create</button>
+            <h1>Login</h1>
+            <label for="username">Username:</label>
+            <input required id="username" type="text" bind:value={username}>
+            <label for="password">Password:</label>
+            <input required id="password" type="password" bind:value={password}>
+            <button type="button" on:click={signIn}>Sign-in</button>
+            <button on:click={createUserOverlay}>No account? Click here to create new account</button>
         </div>
-    </div>
+        <div bind:this={overlay} class="hidden">
+            <div id="create-user">
+                <span class="close" on:click={hideOverlay}>&times</span>
+                <h1>Create new user:</h1>
+                <label for="crt-email">Email:</label>
+                <input required id="crt-email" type="email" bind:value={newEmail}>
+                <label for="crt-username">Username:</label>
+                <input required id="crt-username" type="text" bind:value={newUsername}>
+                <label for="crt-password">Password:</label>
+                <input required id="crt-password" type="password" bind:value={newPassword}>
+                <button type="button" on:click={createUser}>Create</button>
+            </div>
+        </div>
     </main>
     <Footer></Footer>
     <style>
@@ -83,7 +129,7 @@
         }
 
         .close:hover,.close:focus {
-            color: #000;
+            color: black;
             cursor: pointer;
         }
     </style>

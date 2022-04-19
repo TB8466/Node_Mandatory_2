@@ -10,11 +10,13 @@
   "author": "TB",
   "license": "MIT",
   "dependencies": {
+    "bcrypt": "^5.0.1",
     "cors": "^2.8.5",
     "dotenv": "^16.0.0",
     "express": "^4.17.3",
     "helmet": "^5.0.2",
     "mysql": "^2.18.1",
+    "nodemailer": "^6.7.3",
     "path": "^0.12.7"
   }
 }

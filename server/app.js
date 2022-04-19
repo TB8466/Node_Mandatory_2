@@ -1,6 +1,7 @@
 import express from "express"
 import path from "path"
 import DB_flower from "./routers/DB_flower.js";
+import DB_user from "./routers/DB_user.js";
 import cors from "cors";
 import db from "./database/createMySQLConnection.js"
 
@@ -11,6 +12,7 @@ app.use(helmet()); */
 
 app.use(cors());
 app.use(express.json());
+app.use(DB_user);
 app.use(DB_flower);
 app.use(express.static(path.resolve('../client/flowerClient/public')));
  
