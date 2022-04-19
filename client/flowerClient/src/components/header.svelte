@@ -4,7 +4,7 @@
 
 <header>
     <nav>
-        <span><Link to="/">Home</Link></span>
+        <span><Link to="/"><img src="img/logo.jpg" alt="Logo"></Link></span>
         <span><Link to="/shop">Webshop</Link></span>
         <span><Link to="/about">About</Link></span>
         <span><Link to="/admin">Admin</Link></span>
@@ -20,8 +20,16 @@
         margin-left: 50px;
     }
     span{
+        font-size: 25px;
+        font-weight: bold;
         text-decoration: none;
         font-family: "Arial";
     }
-    
+    nav{
+        display: inline-block;
+    }
+    img{
+        height: 65px;
+        width: 65px;
+    }
 </style>

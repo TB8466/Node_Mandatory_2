@@ -1,7 +1,6 @@
 <script>
     import Footer from "../components/footer.svelte";
     import Header from "../components/header.svelte";
-    import {flowers} from "../store/flowers.js"
     import {onMount} from "svelte"
 
     
@@ -35,10 +34,6 @@
 </main>
 <Footer></Footer>
 <style>
-    :global(#shop){
-        
-        
-    } 
     :global(.flower) {
         display: block;
         float: left;

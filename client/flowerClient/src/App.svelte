@@ -1,5 +1,4 @@
 <script>
-	import {onMount} from "svelte"
 	import Frontpage from "./pages/frontpage.svelte";
 	import {Router, Route, Link} from "svelte-navigator"
 	import About from "./pages/about.svelte";
@@ -7,16 +6,11 @@
 	import Admin from "./pages/admin.svelte";
 	import Login from "./pages/login.svelte";
 
-	/* onMount(async () => {
-		const response = await fetch("http://localhost:3000/");
-		//const response = await fetch($baseURL + "/movies");
-		const { data } = await response.json();
-		movies = data;
-	}); */
 </script>
 
 <Router>
 	<main>
+		<img src="img/shop.jpg" alt="Logo">
 		<Route path="/">
 			<Frontpage></Frontpage>
 		</Route>
@@ -39,5 +33,15 @@
 	</main>
 </Router>
 <style>
-
+	
+	img{
+		background-color: white;
+		position: absolute;
+		z-index: -1;
+		margin: 0%;
+		opacity: 50%;
+		top: 50%;
+ 		left: 50%;
+  		transform: translate(-50%, -50%);
+	}
 </style>

@@ -6,6 +6,7 @@ import Header from "../components/header.svelte";
 
 <Header></Header>
 <main>This is the about page
+   Lorem ipsum dolor sit amet consectetur, adipisicing elit. Tempore itaque mollitia facilis omnis at perferendis recusandae vitae facere inventore tenetur!
    
 </main>
 <Footer></Footer>

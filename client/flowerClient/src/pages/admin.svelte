@@ -36,6 +36,8 @@
     <input id="name" type="text" bind:value={name}>
     <label for="amount">Amount in stock:</label>
     <input id="amount" type="number" bind:value={amount}>
+    <!-- <label for="picture">Upload a picture:</label>
+    <input type="file" id="picture" accept="image/*"> -->
     <button type="button" on:click={submit}>Submit</button>
 </main>
 <Footer></Footer>

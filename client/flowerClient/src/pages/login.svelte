@@ -1,7 +1,6 @@
 <script>
     import Footer from "../components/footer.svelte";
     import Header from "../components/header.svelte";
-    import {onMount} from "svelte"
 
     let mainContent;
     let overlay;
@@ -75,7 +74,6 @@
     
     <Header></Header>
     <main>
-        <!-- <button on:click={signIn}>Test</button> -->
         <div bind:this={mainContent} id="main-content">
             <h1>Login</h1>
             <label for="username">Username:</label>
@@ -106,9 +104,6 @@
             filter: blur(8px);
             -webkit-filter: blur(8px);
         }
-            /* #hidden{
-                position: relative;
-            } */
         .hidden{
             display: none;
             
