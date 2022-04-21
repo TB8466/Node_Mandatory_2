@@ -1,3 +1,8 @@
+DROP DATABASE IF EXISTS flowershop;
+CREATE DATABASE flowershop;
+
+USE flowershop;
+
 DROP TABLE IF EXISTS users;
 CREATE TABLE users(
         id INT PRIMARY KEY AUTO_INCREMENT,
